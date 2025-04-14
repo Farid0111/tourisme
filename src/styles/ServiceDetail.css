@@ -1,0 +1,338 @@
+.service-hero {
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: var(--white);
+}
+
+.service-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+.service-hero .container {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 3rem;
+}
+
+.service-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.service-duration, .service-region, .service-price {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.service-duration::before {
+  content: '⏱️ ';
+  margin-right: 5px;
+}
+
+.service-region::before {
+  content: '📍 ';
+  margin-right: 5px;
+}
+
+.service-price::before {
+  content: '💰 ';
+  margin-right: 5px;
+}
+
+.service-content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.service-content > div {
+  margin-bottom: 3rem;
+}
+
+.service-content h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.service-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--green-medium);
+}
+
+.service-description p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.included-list, .not-included-list {
+  padding-left: 1.5rem;
+}
+
+.included-list li, .not-included-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.included-list li::before {
+  content: '✅ ';
+  margin-right: 5px;
+}
+
+.not-included-list li::before {
+  content: '❌ ';
+  margin-right: 5px;
+}
+
+.logistics-card {
+  display: flex;
+  margin-bottom: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logistics-image {
+  flex: 0 0 200px;
+}
+
+.logistics-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logistics-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.logistics-content h3 {
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.logistics-content h4 {
+  margin-bottom: 1rem;
+}
+
+.service-booking {
+  background-color: var(--off-white);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-order {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-order:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+}
+
+.btn-cart {
+  background-color: var(--green-medium);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cart:hover {
+  background-color: var(--green-dark);
+  transform: translateY(-3px);
+}
+
+.service-not-found {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.service-not-found h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-not-found p {
+  margin-bottom: 2rem;
+}
+
+.no-logistics {
+  background-color: var(--off-white);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--gray-dark);
+}
+
+@media screen and (max-width: 992px) {
+  .service-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .service-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .service-hero {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .service-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .service-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .logistics-card {
+    flex-direction: column;
+  }
+  
+  .logistics-image {
+    flex: 0 0 200px;
+    height: 200px;
+  }
+  
+  .booking-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .booking-actions .btn,
+  .booking-actions button {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .btn-order, .btn-cart {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service-hero {
+    height: 40vh;
+    min-height: 250px;
+  }
+  
+  .service-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .service-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .service-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .service-description p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-item img {
+    height: 200px;
+  }
+  
+  .service-details {
+    grid-template-columns: 1fr;
+  }
+} 

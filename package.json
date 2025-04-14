@@ -1,0 +1,55 @@
+{
+  "name": "tourisme-rwanda",
+  "version": "1.0.0",
+  "description": "Site de tourisme au Rwanda - Découvrez la beauté naturelle du Rwanda",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "rwanda",
+    "tourisme",
+    "voyage",
+    "afrique",
+    "gorilles"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@react-google-maps/api": "^2.20.6",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/react-router-dom": "^5.3.3",
+    "firebase": "^11.6.0",
+    "framer-motion": "^12.6.3",
+    "i18next": "^24.2.3",
+    "i18next-browser-languagedetector": "^8.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.22.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5",
+    "zustand": "^5.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1"
+  }
+}

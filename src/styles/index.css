@@ -1,0 +1,67 @@
+:root {
+  /* Palette de couleurs inspirées du Rwanda */
+  --green-dark: #2A6D32;  /* Vert forêt */
+  --green-medium: #4CAF50; /* Vert des collines */
+  --green-light: #8BC34A;  /* Vert clair */
+  --brown-earth: #8D6E63; /* Terre ocre */
+  --yellow-sun: #FFC107;  /* Jaune soleil */
+  --blue-water: #42A5F5;  /* Bleu des lacs */
+  --white: #FFFFFF;
+  --off-white: #F5F5F5;
+  --gray-light: #E0E0E0;
+  --gray-medium: #9E9E9E;
+  --gray-dark: #616161;
+  --black: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--off-white);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--green-dark);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--green-medium);
+}
+
+button, .btn {
+  background-color: var(--green-medium);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--green-dark);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--green-dark);
+} 
