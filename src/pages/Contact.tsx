@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { useTranslation } from '../i18n';
 import GoogleMapComponent from '../components/GoogleMap';
 import '../styles/Contact.css';
 
 const Contact: React.FC = () => {
-  const { t } = useTranslation();
-  
-  // État pour le formulaire de contact
+  // State for contact form
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,18 +11,10 @@ const Contact: React.FC = () => {
     message: ''
   });
   
-  // État pour les messages du chat
-  const [chatMessages, setChatMessages] = useState([
-    { sender: 'system', text: t('contact.chat.welcome') }
-  ]);
-  
-  // État pour l'input du chat
-  const [chatInput, setChatInput] = useState('');
-  
-  // État pour indiquer si le formulaire a été soumis
+  // State to indicate if the form has been submitted
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // Gérer les changements dans le formulaire
+  // Handle changes in the form
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -34,13 +23,13 @@ const Contact: React.FC = () => {
     }));
   };
   
-  // Gérer la soumission du formulaire
+  // Handle form submission
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici, vous enverriez normalement les données à un serveur
+    // Normally, you would send the data to a server here
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
-    // Réinitialiser le formulaire après 3 secondes
+    // Reset the form after 3 seconds
     setTimeout(() => {
       setFormData({
         name: '',
@@ -52,58 +41,17 @@ const Contact: React.FC = () => {
     }, 3000);
   };
   
-  // Gérer l'envoi de messages dans le chat
-  const handleChatSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-    
-    // Ajouter le message de l'utilisateur
-    const userMessage = { sender: 'user', text: chatInput };
-    setChatMessages(prev => [...prev, userMessage]);
-    setChatInput('');
-    
-    // Simuler une réponse après un court délai
-    setTimeout(() => {
-      const responseMessage = { 
-        sender: 'agent', 
-        text: getAutomaticResponse(chatInput) 
-      };
-      setChatMessages(prev => [...prev, responseMessage]);
-    }, 1000);
-  };
-  
-  // Générer une réponse automatique simple basée sur le message de l'utilisateur
-  const getAutomaticResponse = (message: string): string => {
-    const lowercaseMsg = message.toLowerCase();
-    
-    if (lowercaseMsg.includes('bonjour') || lowercaseMsg.includes('salut')) {
-      return 'Bonjour! Comment puis-je vous aider pour votre voyage au Rwanda?';
-    } else if (lowercaseMsg.includes('prix') || lowercaseMsg.includes('tarif') || lowercaseMsg.includes('coût')) {
-      return 'Nos tarifs varient selon les activités et la saison. Pouvez-vous préciser quelle activité vous intéresse?';
-    } else if (lowercaseMsg.includes('gorille') || lowercaseMsg.includes('trekking')) {
-      return 'Le trekking des gorilles est notre activité phare. Le permis coûte 1500 USD par personne. Souhaitez-vous plus d\'informations à ce sujet?';
-    } else if (lowercaseMsg.includes('réserv')) {
-      return 'Pour effectuer une réservation, veuillez nous indiquer les dates de votre séjour, le nombre de personnes et les activités qui vous intéressent.';
-    } else if (lowercaseMsg.includes('hôtel') || lowercaseMsg.includes('hotel') || lowercaseMsg.includes('logement') || lowercaseMsg.includes('hébergement')) {
-      return 'Nous proposons différentes options d\'hébergement, du lodge confortable aux hôtels de luxe. Quel type d\'hébergement recherchez-vous?';
-    } else if (lowercaseMsg.includes('merci')) {
-      return 'Je vous en prie! N\'hésitez pas si vous avez d\'autres questions.';
-    } else {
-      return 'Merci pour votre message. Un conseiller va vous répondre dans les plus brefs délais. Avez-vous d\'autres questions?';
-    }
-  };
-  
-  // Coordonnées de Kigali pour la carte
+  // Kigali coordinates for the map
   const kigaliLocation = {
     lat: -1.9403,
     lng: 30.0618
   };
   
-  // Marqueur pour notre bureau à Kigali
+  // Marker for our office in Kigali
   const officeMarker = [
     {
       position: kigaliLocation,
-      title: 'Tourisme Rwanda - Bureau principal'
+      title: 'Tourism Rwanda - Main Office'
     }
   ];
   
@@ -111,8 +59,8 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="contact-hero">
         <div className="container">
-          <h1>{t('contact.title')}</h1>
-          <p>{t('contact.subtitle')}</p>
+          <h1>Contact Us</h1>
+          <p>We're here to answer all your questions</p>
         </div>
       </div>
       
@@ -122,41 +70,41 @@ const Contact: React.FC = () => {
             <div className="info-icon">
               <span>📱</span>
             </div>
-            <h3>{t('contact.info.phone.title')}</h3>
-            <p>{t('contact.info.phone.number')}</p>
-            <p>{t('contact.info.phone.hours')}</p>
+            <h3>Phone</h3>
+            <p>+250 78 123 4567</p>
+            <p>Available 7 days a week from 8am to 6pm</p>
           </div>
           
           <div className="info-card">
             <div className="info-icon">
               <span>✉️</span>
             </div>
-            <h3>{t('contact.info.email.title')}</h3>
-            <p>{t('contact.info.email.address')}</p>
-            <p>{t('contact.info.email.response')}</p>
+            <h3>Email</h3>
+            <p>contact@tourism-rwanda.com</p>
+            <p>Response within 24 hours</p>
           </div>
           
           <div className="info-card">
             <div className="info-icon">
               <span>📍</span>
             </div>
-            <h3>{t('contact.info.address.title')}</h3>
-            <p>{t('contact.info.address.street')}</p>
-            <p>{t('contact.info.address.city')}</p>
+            <h3>Address</h3>
+            <p>KG 8 Avenue, Kiyovu</p>
+            <p>Kigali, Rwanda</p>
           </div>
         </div>
         
         <div className="contact-main">
           <div className="contact-form-container">
-            <h2>{t('contact.form.title')}</h2>
+            <h2>Contact Form</h2>
             {isSubmitted ? (
               <div className="form-success">
-                <p>{t('contact.form.success')}</p>
+                <p>Your message has been successfully sent. We will respond to you as soon as possible.</p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleFormSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name">{t('contact.form.name')} *</label>
+                  <label htmlFor="name">Name *</label>
                   <input
                     type="text"
                     id="name"
@@ -168,7 +116,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="email">{t('contact.form.email')} *</label>
+                  <label htmlFor="email">Email *</label>
                   <input
                     type="email"
                     id="email"
@@ -180,7 +128,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="subject">{t('contact.form.subject')} *</label>
+                  <label htmlFor="subject">Subject *</label>
                   <select
                     id="subject"
                     name="subject"
@@ -188,16 +136,16 @@ const Contact: React.FC = () => {
                     onChange={handleFormChange}
                     required
                   >
-                    <option value="">{t('contact.form.subjects.select')}</option>
-                    <option value="reservation">{t('contact.form.subjects.reservation')}</option>
-                    <option value="information">{t('contact.form.subjects.information')}</option>
-                    <option value="feedback">{t('contact.form.subjects.feedback')}</option>
-                    <option value="other">{t('contact.form.subjects.other')}</option>
+                    <option value="">Select a subject</option>
+                    <option value="reservation">Reservation</option>
+                    <option value="information">Information Request</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="message">{t('contact.form.message')} *</label>
+                  <label htmlFor="message">Message *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -208,41 +156,58 @@ const Contact: React.FC = () => {
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="btn">{t('contact.form.submit')}</button>
+                <button type="submit" className="btn">Send</button>
               </form>
             )}
           </div>
           
-          <div className="chat-container">
-            <h2>{t('contact.chat.title')}</h2>
-            <div className="chat-messages">
-              {chatMessages.map((msg, index) => (
-                <div key={index} className={`chat-message ${msg.sender}`}>
-                  <p>{msg.text}</p>
-                </div>
-              ))}
-            </div>
-            <div className="chat-input-container">
-              <form onSubmit={handleChatSubmit}>
-                <input
-                  type="text"
-                  value={chatInput}
-                  placeholder={t('contact.chat.placeholder')}
-                  onChange={(e) => setChatInput(e.target.value)}
-                />
-                <button type="submit" className="btn">{t('contact.chat.send')}</button>
-              </form>
+          <div className="quick-contact">
+            <h2>Need a quick response?</h2>
+            <p>Call us directly or send us an email for a quick response.</p>
+            <div className="quick-contact-buttons">
+              <a href="tel:+25078123456" className="btn">Call Now</a>
+              <a href="mailto:contact@tourism-rwanda.com" className="btn">Send Email</a>
             </div>
           </div>
         </div>
-        
-        <div className="map-container">
-          <h2>{t('contact.map.title')}</h2>
-          <GoogleMapComponent 
-            center={kigaliLocation}
-            zoom={14}
-            markers={officeMarker}
-          />
+      </div>
+      
+      <div className="map-section section">
+        <div className="container">
+          <h2>Our Location</h2>
+          <p>Visit us at our Kigali office</p>
+          <div className="map-container">
+            <GoogleMapComponent
+              center={kigaliLocation}
+              zoom={14}
+              markers={officeMarker}
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div className="faq-section section container">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faqs">
+          <div className="faq-item">
+            <h3>How do I book an activity?</h3>
+            <p>You can book an activity by going to the activities page, selecting the one you're interested in, and clicking "Add to Cart". You can then complete your reservation on the cart page.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What documents are needed to visit Rwanda?</h3>
+            <p>To visit Rwanda, you will need a valid passport, a tourist visa (available online or on arrival), and a yellow fever vaccination certificate. For gorilla trekking, a special permit is required.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What is the best season to visit Rwanda?</h3>
+            <p>Rwanda can be visited year-round, but the dry seasons (June to September and December to February) are generally preferable for trekking and safaris. The rainy season offers more verdant landscapes and is ideal for photography.</p>
+          </div>
+          
+          <div className="faq-item">
+            <h3>What payment options are available?</h3>
+            <p>We accept payments by credit/debit card, PayPal, and bank transfer. For security reasons, a 30% deposit is required to confirm your booking, with the balance due 30 days before your arrival.</p>
+          </div>
         </div>
       </div>
     </div>

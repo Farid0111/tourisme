@@ -24,7 +24,9 @@
     "types": ["react", "react-dom"],
     "noImplicitAny": false,
     "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true
+    "noImplicitThis": false,
+    "skipDefaultLibCheck": true,
+    "ignoreDeprecations": "5.0"
   },
   "include": [
     "src"

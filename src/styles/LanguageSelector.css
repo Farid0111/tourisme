@@ -1,91 +1,110 @@
 .language-selector {
   position: relative;
-  margin-left: 1rem;
+  margin-left: 20px;
+  z-index: 100;
 }
 
-.language-selector-current {
+.language-button {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  transition: background-color 0.2s;
+  padding: 6px 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-.language-selector-current:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.language-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .language-flag {
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
+  font-size: 16px;
+  margin-right: 8px;
 }
 
-.language-selector-dropdown {
+.language-name {
+  margin-right: 8px;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.language-selector button[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
+  margin-top: 8px;
+  background: white;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s;
-  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  min-width: 150px;
+  width: 150px;
+  animation: fadeIn 0.3s ease;
 }
 
-.language-selector:hover .language-selector-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .language-option {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
   width: 100%;
+  padding: 10px 15px;
   border: none;
-  background: none;
+  background: transparent;
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.2s;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s ease;
 }
 
 .language-option:hover {
-  background-color: #f8f9fa;
+  background: #f5f5f5;
 }
 
 .language-option.active {
-  background-color: #e9ecef;
-  font-weight: bold;
-}
-
-/* Mode sombre */
-@media (prefers-color-scheme: dark) {
-  .language-selector-dropdown {
-    background-color: #2c3e50;
-  }
-  
-  .language-option:hover {
-    background-color: #34495e;
-  }
-  
-  .language-option.active {
-    background-color: #1a2530;
-  }
+  background: #f0f0f0;
+  font-weight: 600;
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .language-name {
     display: none;
   }
   
+  .language-button {
+    padding: 6px 8px;
+  }
+  
   .language-flag {
-    margin-right: 0;
+    margin-right: 2px;
+  }
+  
+  .language-dropdown {
+    width: 120px;
+  }
+  
+  .language-option .language-name {
+    display: inline;
   }
 } 

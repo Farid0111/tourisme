@@ -1,16 +1,14 @@
 import { Activity } from '../utils/types';
-import { useTranslation } from '../i18n';
 import '../styles/ActivityList.css';
+import { Link } from 'react-router-dom';
 
 const ActivityCard = ({ activity }) => {
-  const { t } = useTranslation();
-
   return (
     <div className={`activity-card ${activity.featured ? 'featured' : ''}`}>
       <div className="activity-image">
         <img src={activity.image} alt={activity.title} />
         {activity.featured && (
-          <div className="activity-featured">{t("activities.featured")}</div>
+          <div className="activity-featured">Popular</div>
         )}
         <div className="activity-price">{activity.price}</div>
       </div>
@@ -30,8 +28,17 @@ const ActivityCard = ({ activity }) => {
         </div>
         
         <p className="activity-description">
-          {activity.id === 1 ? t("activities.trek.description") : activity.shortDescription}
+          {activity.shortDescription}
         </p>
+        
+        <div className="activity-actions">
+          <Link to={`/activity/${activity.id}`} className="btn-details">
+            Details
+          </Link>
+          <Link to={`/activity/${activity.id}`} className="btn-details">
+            Order
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -19,21 +19,34 @@ export interface Activity {
     lat: number;
     lng: number;
   };
+  highlights?: string[];
+  itinerary?: {
+    title: string;
+    description: string;
+    activities?: string[];
+  }[];
+  accommodation?: string;
+  transport?: string;
+  meals?: string;
 }
 
-export type DurationOption = '1 jour' | '2 jours' | '3 jours' | '5 jours' | '1 semaine' | 'Tous';
+export interface DurationOption {
+  value: string;
+  label: string;
+}
 
-export type RegionOption = 'Kigali' | 'Parc National des Volcans' | 'Parc National de l\'Akagera' | 'Parc National de Nyungwe' | 'Ouest' | 'Nord' | 'Est' | 'Sud' | 'Toutes';
+export interface RegionOption {
+  value: string;
+  label: string;
+}
 
 // Types pour le chat
 export interface ChatMessage {
   id: string;
   text: string;
-  sender: 'user' | 'admin';
-  timestamp: Date | number;
+  sender: 'user' | 'agent';
+  timestamp: Date;
   read?: boolean;
-  userName?: string;
-  userEmail?: string;
 }
 
 export interface ChatUser {
@@ -51,25 +64,6 @@ export interface ChatSession {
   startedAt: Date | number;
   lastMessageAt?: Date | number;
   isOpen: boolean;
-}
-
-// Type pour la commande d'activité
-export interface ActivityOrder {
-  activityId: number;
-  activityTitle: string;
-  date?: string;
-  numPersons?: number;
-  specialRequests?: string;
-}
-
-// Interface pour le contexte global du chat
-export interface ChatContextType {
-  isChatOpen: boolean;
-  openChat: () => void;
-  closeChat: () => void;
-  activityToOrder: ActivityOrder | null;
-  setActivityToOrder: (activity: ActivityOrder | null) => void;
-  sendMessage: (message: string) => Promise<void>;
 }
 
 export interface Review {

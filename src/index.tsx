@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './styles/index.css';
-import './utils/i18n'; // Initialisation de i18n
+// Import i18n (doit être avant toute utilisation de la traduction)
+import './utils/i18n';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

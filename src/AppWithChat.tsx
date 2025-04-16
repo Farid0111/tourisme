@@ -9,7 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import './styles/App.css';
 
-const App: React.FC = () => {
+const AppWithChat: React.FC = () => {
   return (
     <div className="app">
       <Header />
@@ -27,4 +27,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
+export default AppWithChat; 

@@ -1,11 +1,17 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { Activity, ActivityOrder, Review, ReviewFormData } from './types';
+import { Activity, Review, ReviewFormData } from './types';
 import { reviewsData } from './reviewsData';
 
-interface CartItem extends ActivityOrder {
+// Direct definition without extending ActivityOrder
+interface CartItem {
+  activityId: number;
+  activityTitle: string;
   price: string;
   image: string;
+  numPersons?: number;
+  date?: string;
+  specialRequests?: string;
 }
 
 interface CartState {

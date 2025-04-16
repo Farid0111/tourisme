@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Tourisme Rwanda</h3>
-            <p>Découvrez la beauté exceptionnelle du Rwanda, terre des mille collines.</p>
+            <h3>Tourism Rwanda</h3>
+            <p>Discover the exceptional beauty of Rwanda, land of a thousand hills.</p>
             <div className="social-links">
               <a href="#" aria-label="Facebook">
                 <i className="social-icon facebook">FB</i>
@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="footer-section">
-            <h3>Liens Rapides</h3>
+            <h3>Quick Links</h3>
             <ul className="footer-links">
-              <li><Link to="/">Accueil</Link></li>
-              <li><Link to="/activities">Activités</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/activities">Activities</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
@@ -38,19 +38,19 @@ const Footer: React.FC = () => {
             <h3>Contact</h3>
             <address>
               <p>Kigali, Rwanda</p>
-              <p>Email: info@tourisme-rwanda.com</p>
-              <p>Téléphone: +250 123 456 789</p>
+              <p>Email: info@tourism-rwanda.com</p>
+              <p>Phone: +250 123 456 789</p>
             </address>
           </div>
         </div>
         
         <div className="footer-bottom">
           <div className="legal-links">
-            <Link to="/legal/terms">Conditions d'utilisation</Link>
-            <Link to="/legal/privacy">Politique de confidentialité</Link>
+            <Link to="/legal/terms">Terms of Use</Link>
+            <Link to="/legal/privacy">Privacy Policy</Link>
           </div>
           <p className="copyright">
-            &copy; {currentYear} Tourisme Rwanda. Tous droits réservés.
+            &copy; {currentYear} Tourism Rwanda. All rights reserved.
           </p>
         </div>
       </div>
